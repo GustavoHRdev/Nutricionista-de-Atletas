@@ -1,6 +1,6 @@
 # Nutricionista Lyncon Gabriel
 
-Site profissional para divulgação dos serviços do nutricionista Lyncon Gabriel, desenvolvido com React + Vite + Tailwind CSS.
+Site profissional para divulgação dos serviços do Nutricionista de atletas Lyncon Gabriel, desenvolvido com React + Vite + Tailwind CSS.
 
 ## Demonstração
 
