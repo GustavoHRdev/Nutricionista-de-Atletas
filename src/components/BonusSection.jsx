@@ -12,7 +12,7 @@ export default function BonusSection() {
           <span className="inline-block bg-yellow-400 text-black px-4 py-1 rounded-full font-semibold mt-2 shadow">Grátis para clientes</span>
         </div>
         <div className="bg-gradient-to-br from-red-700 via-orange-400 to-yellow-300 rounded-xl p-8 shadow-xl text-center flex flex-col items-center animate-fadeIn">
-          <FaHeartbeat className="text-5xl text-red-400 mb-4 drop-shadow" />
+          <FaHeartbeat className="text-5xl text-red-700 mb-4 drop-shadow" />
           <h3 className="text-xl font-bold mb-2 text-yellow-300">Relatório Nutricional</h3>
           <p className="text-white mb-2">Orientações de refeição livre, ingestão hídrica e atividade cardiovascular.</p>
           <span className="inline-block bg-yellow-400 text-black px-4 py-1 rounded-full font-semibold mt-2 shadow">Personalizado</span>

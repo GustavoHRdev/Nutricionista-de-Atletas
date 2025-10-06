@@ -61,9 +61,9 @@ export default function PlansSection() {
   ];
 
   return (
-    <section id="planos" className="py-16 px-4 bg-gradient-to-br from-red-700 via-orange-400 to-yellow-300">
-      <h2 className="text-3xl font-bold text-white mb-10 text-center">Conheça os Planos</h2>
-      <div className="flex flex-col md:flex-row gap-8 justify-center items-stretch">
+    <section id="planos" className="py-8 px-3">
+      <h2 className="text-lg font-bold mb-6 md:text-2xl text-white text-center">Conheça os Planos</h2>
+      <div className="flex flex-col gap-6 md:flex-row md:gap-8">
         {plans.map((plan) => (
           <div
             key={plan.title}

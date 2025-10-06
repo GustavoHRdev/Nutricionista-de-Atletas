@@ -2,23 +2,23 @@ import fotoNutri from '../assets/nutri-nova.jpg';
 
 export default function HeroSection() {
   return (
-    <section className="flex flex-col md:flex-row items-center justify-center gap-10 py-16 px-4 bg-gradient-to-br from-red-700 via-orange-400 to-yellow-300">
-      <div className="relative flex justify-center items-center w-full max-w-xs md:max-w-md mx-auto">
-        <div className="absolute inset-0 rounded-xl blur-2xl opacity-60 bg-gradient-to-br from-yellow-300 via-orange-400 to-red-700"></div>
-        <img
-          src={fotoNutri}
-          alt="Nutricionista"
-          className="relative w-full rounded-xl object-cover shadow-2xl z-10 transition duration-300 hover:scale-105"
-        />
-      </div>
-      <div className="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start text-center md:text-left">
-        <h1 className="text-2xl md:text-4xl font-extrabold mb-4 text-black-400">
+    <section className="flex flex-col items-center justify-center gap-6 py-8 px-3">
+      <img
+        src={fotoNutri}
+        alt="Nutricionista"
+        className="w-full max-w-xs rounded-xl object-cover shadow-xl mx-auto"
+      />
+      <div className="w-full flex flex-col items-center text-center">
+        <h1 className="text-lg font-extrabold mb-3 md:text-3xl">
           Já cansou de seguir dietas e não ter resultados?
         </h1>
-        <p className="text-base md:text-lg mb-6 text-white">
+        <p className="text-base mb-4 text-white px-2 md:text-lg">
           Talvez o problema não seja você, mas sim os protocolos prontos, difíceis de seguir e totalmente desconectados da sua realidade.
         </p>
-        <a href="#contato" className="bg-gradient-to-r from-red-600 via-orange-400 to-yellow-300 text-black px-6 py-3 rounded-lg font-bold shadow-lg transition hover:scale-105 w-full md:w-auto">
+        <a
+          href="#contato"
+          className="w-full max-w-xs bg-gradient-to-r from-red-600 via-orange-400 to-yellow-300 text-black px-4 py-3 rounded-lg font-bold shadow-lg transition hover:scale-105 text-center"
+        >
           Busco resultados de verdade
         </a>
       </div>
