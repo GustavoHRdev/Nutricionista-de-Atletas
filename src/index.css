@@ -116,6 +116,16 @@ button:focus-visible {
 }
 
 
+@keyframes neon-glow {
+  0%, 100% { text-shadow: 0 0 5px #fff, 0 0 10px #f59e42; }
+  50% { text-shadow: 0 0 20px #fff, 0 0 40px #f59e42, 0 0 60px #ffb74d; }
+}
+.animate-neon-glow {
+  animation: neon-glow 1.5s infinite alternate;
+  display: inline-block;
+}
+
+
 
 
 

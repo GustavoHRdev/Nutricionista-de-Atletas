@@ -20,7 +20,7 @@ export default function TestimonialsSection() {
     <div className="bg-gradient-to-br from-red-700 via-orange-400 to-yellow-300 text-white">
       <section
   id="resultados"
-  className="py-1 px-3 flex flex-col items-center mb-8" // <--- aqui adicionamos margin-bottom
+  className="py-4 px-3 flex flex-col items-center"
 >
   <h2 className="text-lg font-bold mb-4 md:text-2xl text-yellow-400">Depoimentos</h2>
   <div className="relative w-full max-w-md overflow-hidden">

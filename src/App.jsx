@@ -16,16 +16,17 @@ export default function App() {
       <header className="fixed w-full bg-black bg-opacity-90 shadow-lg z-50 flex items-center justify-between px-8 py-4">
         <div className="text-2xl font-bold text-yellow-400">Nutrição & Performance</div>
         <nav className="space-x-6 hidden md:block">
-          <a href="#consultoria" className="text-yellow-400 transition">Consultoria</a>
-          <a href="#resultados" className="text-yellow-400 transition">Resultados</a>
-          <a href="#planos" className="text-yellow-400 transition">Planos</a>
-          <a href="#bonus" className="text-yellow-400 transition">Bônus</a>
-          <a href="#sobre" className="text-yellow-400 transition">Quem sou eu</a>
+          <a href="#consultoria" className="text-yellow-400 transition hover:text-orange-400">Consultoria</a>
+          <a href="#resultados" className="text-yellow-400 transition hover:text-orange-400">Resultados</a>
+          <a href="#planos" className="text-yellow-400 transition hover:text-orange-400">Planos</a>
+          <a href="#bonus" className="text-yellow-400 transition hover:text-orange-400">Bônus</a>
+          <a href="#sobre" className="text-yellow-400 transition hover:text-orange-400">Quem sou eu</a>
         </nav>
         <div className="md:hidden">
           <button
-            className="text-yellow-400 text-3xl"
+            className="md:hidden text-yellow-400 text-3xl p-3 rounded-lg bg-black bg-opacity-80 hover:bg-yellow-400 hover:text-black transition"
             onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Abrir menu"
           >
             &#9776;
           </button>

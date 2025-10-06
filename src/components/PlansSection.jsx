@@ -63,15 +63,15 @@ export default function PlansSection() {
   return (
     <section id="planos" className="py-8 px-3">
       <h2 className="text-lg font-bold mb-6 md:text-2xl text-white text-center">Conheça os Planos</h2>
-      <div className="flex flex-col gap-6 md:flex-row md:gap-8">
+      <div className="flex flex-col md:flex-row gap-8 md:gap-10 items-center justify-center">
         {plans.map((plan) => (
           <div
             key={plan.title}
-            className="flex-1 bg-black bg-opacity-80 rounded-2xl shadow-lg p-8 flex flex-col items-center border-4 border-yellow-400 scale-105 relative"
+            className="w-full max-w-sm bg-black bg-opacity-80 rounded-2xl shadow-lg p-8 flex flex-col items-center border-4 border-yellow-400 scale-105 relative"
           >
             {plan.highlight && (
-              <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-orange-500 text-white px-4 py-1 rounded-full font-bold shadow-lg flex items-center gap-2">
-                🔥 Recomendado
+              <div className="mt-3 bg-orange-500 text-white px-6 py-2 rounded-full font-extrabold shadow-xl flex items-center gap-2 text-lg md:text-2xl border-2 border-yellow-700">
+                🔥 <span className="animate-neon-glow">Recomendado</span>
               </div>
             )}
             <h3 className="text-2xl font-bold text-yellow-300 mb-2 mt-4">{plan.title}</h3>
