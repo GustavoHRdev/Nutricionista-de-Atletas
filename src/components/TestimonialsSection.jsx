@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useCallback } from "react";
 // Importe todos os prints adicionados em src/assets
 import print1 from "../assets/print1.jpg";
 import print2 from "../assets/print2.jpg";
@@ -18,72 +18,86 @@ const prints = [
 
 export default function TestimonialsSection() {
   const scrollRef = useRef(null);
-  let touchStartX = 0;
+  const animationRef = useRef(null);
 
-  // Animação automática do carrossel
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (scrollRef.current) {
-        scrollRef.current.scrollLeft += 220; // ajuste conforme o tamanho do card
-        // Loop infinito
-        if (
-          scrollRef.current.scrollLeft + scrollRef.current.offsetWidth >=
-          scrollRef.current.scrollWidth
-        ) {
-          scrollRef.current.scrollLeft = 0;
-        }
+  // Animação suave e contínua - somente automática
+  const animateCarousel = useCallback(() => {
+    if (scrollRef.current) {
+      const container = scrollRef.current;
+      const scrollSpeed = 0.5; // pixels por frame - velocidade suave
+      
+      container.scrollLeft += scrollSpeed;
+      
+      // Loop infinito suave - reset quando chegar no meio (onde as imagens se repetem)
+      const maxScroll = container.scrollWidth / 2;
+      if (container.scrollLeft >= maxScroll) {
+        container.scrollLeft = 0;
       }
-    }, 2500); // velocidade do carrossel
-    return () => clearInterval(interval);
+    }
+    
+    animationRef.current = requestAnimationFrame(animateCarousel);
   }, []);
 
-  // Touch para deslizar
-  const handleTouchStart = (e) => {
-    touchStartX = e.touches[0].clientX;
-  };
-
-  const handleTouchMove = (e) => {
-    if (scrollRef.current) {
-      const touchX = e.touches[0].clientX;
-      const delta = touchStartX - touchX;
-      scrollRef.current.scrollLeft += delta;
-      touchStartX = touchX;
-    }
-  };
+  // Iniciar animação
+  useEffect(() => {
+    animationRef.current = requestAnimationFrame(animateCarousel);
+    
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [animateCarousel]);
 
   return (
     <div className="bg-gradient-to-br from-red-700 via-orange-400 to-yellow-300 text-white">
       <section
         id="resultados"
-        className="py-4 px-3 flex flex-col items-center"
+        className="py-6 px-4 flex flex-col items-center md:py-8 lg:py-10"
       >
-        <h2 className="text-lg font-bold mb-4 md:text-2xl text-yellow-400">Depoimentos</h2>
+        <h2 className="text-xl font-bold mb-6 text-yellow-400 md:text-2xl md:mb-8 lg:text-3xl">Depoimentos</h2>
         <div
-          className="relative w-full max-w-lg overflow-x-auto scrollbar-hide"
+          className="relative w-full max-w-sm overflow-hidden md:max-w-2xl lg:max-w-4xl auto-carousel"
           ref={scrollRef}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          style={{ scrollSnapType: "x mandatory" }}
         >
-          <div className="flex gap-6">
-            {prints.concat(prints).map((img, idx) => (
+          <div className="flex gap-4 md:gap-6 carousel-track" style={{ width: "200%" }}>
+            {/* Primeira cópia das imagens */}
+            {prints.map((img, idx) => (
               <div
-                key={idx}
-                className="flex-shrink-0 flex justify-center items-center bg-black rounded-xl p-4 shadow-lg"
+                key={`first-${idx}`}
+                className="flex-shrink-0 flex justify-center items-center bg-black rounded-xl p-3 shadow-lg md:p-4 carousel-item"
                 style={{ scrollSnapAlign: "center" }}
               >
                 <img
                   src={img}
                   alt={`Depoimento ${idx + 1}`}
-                  className="w-56 h-auto rounded-lg object-cover"
+                  className="w-48 h-auto rounded-lg object-cover md:w-56 lg:w-64 select-none pointer-events-none"
+                  draggable={false}
+                />
+              </div>
+            ))}
+            {/* Segunda cópia para loop infinito suave */}
+            {prints.map((img, idx) => (
+              <div
+                key={`second-${idx}`}
+                className="flex-shrink-0 flex justify-center items-center bg-black rounded-xl p-3 shadow-lg md:p-4 carousel-item"
+                style={{ scrollSnapAlign: "center" }}
+              >
+                <img
+                  src={img}
+                  alt={`Depoimento ${idx + 1}`}
+                  className="w-48 h-auto rounded-lg object-cover md:w-56 lg:w-64 select-none pointer-events-none"
+                  draggable={false}
                 />
               </div>
             ))}
           </div>
         </div>
-        <p className="mt-4 text-sm text-yellow-200 text-center">
-          Arraste para o lado para ler mais depoimentos
-        </p>
+        <div className="flex items-center justify-center mt-4">
+          <p className="text-sm text-yellow-200 text-center md:text-base lg:mt-2">
+            Depoimentos reais dos nossos clientes
+          </p>
+        </div>
       </section>
     </div>
   );

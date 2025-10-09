@@ -13,8 +13,8 @@ export default function App() {
 
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-br from-red-700 via-orange-400 to-yellow-300 text-white">
-      <header className="fixed w-full bg-black bg-opacity-90 shadow-lg z-50 flex items-center justify-between px-8 py-4">
-        <div className="text-2xl font-bold text-yellow-400">Nutrição & Performance</div>
+      <header className="fixed w-full bg-black bg-opacity-90 shadow-lg z-50 flex items-center justify-between px-4 py-3 md:px-8 md:py-4">
+        <div className="text-lg font-bold text-yellow-400 md:text-2xl">Nutrição & Performance</div>
         <nav className="space-x-6 hidden md:block">
           <a href="#consultoria" className="text-yellow-400 transition hover:text-orange-400">Consultoria</a>
           <a href="#resultados" className="text-yellow-400 transition hover:text-orange-400">Resultados</a>
@@ -24,7 +24,7 @@ export default function App() {
         </nav>
         <div className="md:hidden">
           <button
-            className="md:hidden text-yellow-400 text-3xl p-3 rounded-lg bg-black bg-opacity-80 hover:bg-yellow-400 hover:text-black transition"
+            className="text-yellow-400 text-2xl p-2 rounded-lg bg-black bg-opacity-80 hover:bg-yellow-400 hover:text-black transition md:text-3xl md:p-3"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Abrir menu"
           >
@@ -34,14 +34,14 @@ export default function App() {
       </header>
       {menuOpen && (
         <nav className="md:hidden fixed top-16 left-0 w-full bg-black bg-opacity-95 flex flex-col items-center py-4 z-40">
-          <a href="#consultoria" className="text-yellow-400 py-2" onClick={() => setMenuOpen(false)}>Consultoria</a>
-          <a href="#resultados" className="text-yellow-400 py-2" onClick={() => setMenuOpen(false)}>Resultados</a>
-          <a href="#planos" className="text-yellow-400 py-2" onClick={() => setMenuOpen(false)}>Planos</a>
-          <a href="#bonus" className="text-yellow-400 py-2" onClick={() => setMenuOpen(false)}>Bônus</a>
-          <a href="#sobre" className="text-yellow-400 py-2" onClick={() => setMenuOpen(false)}>Quem sou eu</a>
+          <a href="#consultoria" className="text-yellow-400 py-3 text-lg hover:text-orange-400 transition" onClick={() => setMenuOpen(false)}>Consultoria</a>
+          <a href="#resultados" className="text-yellow-400 py-3 text-lg hover:text-orange-400 transition" onClick={() => setMenuOpen(false)}>Resultados</a>
+          <a href="#planos" className="text-yellow-400 py-3 text-lg hover:text-orange-400 transition" onClick={() => setMenuOpen(false)}>Planos</a>
+          <a href="#bonus" className="text-yellow-400 py-3 text-lg hover:text-orange-400 transition" onClick={() => setMenuOpen(false)}>Bônus</a>
+          <a href="#sobre" className="text-yellow-400 py-3 text-lg hover:text-orange-400 transition" onClick={() => setMenuOpen(false)}>Quem sou eu</a>
         </nav>
       )}
-      <main className="flex-1 pt-24">
+      <main className="flex-1 pt-16 md:pt-24">
         <HeroSection />
         <ConsultingSection />
         <TestimonialsSection />

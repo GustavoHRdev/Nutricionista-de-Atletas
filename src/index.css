@@ -28,15 +28,12 @@ a:hover {
 
 body {
   margin: 0;
+  padding: 0;
   min-width: 320px;
   min-height: 100vh;
-  background: linear-gradient(135deg, #e6f4ea 0%, #ffffff 100%);
-  color: #afadad;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
   font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -webkit-overflow-scrolling: touch;
 }
 
 h1, h2, h3 {
@@ -131,6 +128,71 @@ button:focus-visible {
 }
 .scrollbar-hide::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
+}
+
+/* Mobile-first optimizations */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent horizontal scroll on mobile */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Ensure touch targets are at least 44px */
+button, a {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Smooth carousel animations */
+.carousel-container {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Auto carousel specific styles */
+.auto-carousel {
+  overflow: hidden;
+  position: relative;
+}
+
+.auto-carousel .carousel-track {
+  display: flex;
+  will-change: transform;
+}
+
+/* Improved cursor states for carousel */
+.cursor-grab {
+  cursor: grab;
+}
+
+.cursor-grab:active,
+.active\:cursor-grabbing:active {
+  cursor: grabbing;
+}
+
+/* Prevent text selection during drag */
+.select-none {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Smooth transitions for carousel items */
+.carousel-item {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.carousel-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 

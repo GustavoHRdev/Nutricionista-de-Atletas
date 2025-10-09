@@ -61,23 +61,23 @@ export default function PlansSection() {
   ];
 
   return (
-    <section id="planos" className="py-8 px-3">
-      <h2 className="text-lg font-bold mb-6 md:text-2xl text-white text-center">Conheça os Planos</h2>
-      <div className="flex flex-col md:flex-row gap-8 md:gap-10 items-center justify-center">
+    <section id="planos" className="py-6 px-4 md:py-8 lg:py-10">
+      <h2 className="text-xl font-bold mb-6 text-white text-center md:text-2xl md:mb-8 lg:text-3xl lg:mb-10">Conheça os Planos</h2>
+      <div className="flex flex-col gap-6 items-center justify-center md:flex-row md:gap-6 lg:gap-8 max-w-7xl mx-auto">
         {plans.map((plan) => (
           <div
             key={plan.title}
-            className="w-full max-w-sm bg-black bg-opacity-80 rounded-2xl shadow-lg p-8 flex flex-col items-center border-4 border-yellow-400 scale-105 relative"
+            className={`w-full max-w-sm bg-black bg-opacity-80 rounded-2xl shadow-lg p-6 flex flex-col items-center border-4 border-yellow-400 relative md:p-8 ${plan.highlight ? 'md:scale-105 lg:scale-110' : ''}`}
           >
             {plan.highlight && (
-              <div className="mt-3 bg-orange-500 text-white px-6 py-2 rounded-full font-extrabold shadow-xl flex items-center gap-2 text-lg md:text-2xl border-2 border-yellow-700">
+              <div className="absolute -top-3 bg-orange-500 text-white px-4 py-2 rounded-full font-extrabold shadow-xl flex items-center gap-2 text-sm border-2 border-yellow-700 md:text-lg md:px-6 md:-top-4">
                 🔥 <span className="animate-neon-glow">Recomendado</span>
               </div>
             )}
-            <h3 className="text-2xl font-bold text-yellow-300 mb-2 mt-4">{plan.title}</h3>
-            <div className="text-4xl font-extrabold text-white mb-2">{plan.price}</div>
-            <div className="text-base text-orange-300 mb-4 text-center">{plan.description}</div>
-            <ul className="text-white text-left mb-4 space-y-2">
+            <h3 className="text-xl font-bold text-yellow-300 mb-2 mt-4 md:text-2xl">{plan.title}</h3>
+            <div className="text-3xl font-extrabold text-white mb-2 md:text-4xl">{plan.price}</div>
+            <div className="text-sm text-orange-300 mb-4 text-center leading-relaxed md:text-base">{plan.description}</div>
+            <ul className="text-white text-left mb-4 space-y-2 text-sm md:text-base">
               {plan.details.map((item, i) => (
                 <li key={i} className={item.includes("custo-benefício") ? "font-bold text-yellow-400" : ""}>
                   {item}
@@ -88,7 +88,7 @@ export default function PlansSection() {
               href={`https://wa.me/${whatsapp}?text=${encodeURIComponent(plan.message)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 bg-orange-500 text-white px-6 py-2 rounded-full font-bold shadow transition animate-pulse"
+              className="mt-auto bg-orange-500 text-white px-6 py-3 rounded-full font-bold shadow transition animate-pulse hover:scale-105 text-center md:px-8 md:py-4"
             >
               Adquirir Plano
             </a>
